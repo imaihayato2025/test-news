@@ -4,7 +4,7 @@ import Themabtn from "./components/Themabtn";
 
 export default function Home() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
 <div className="h-screen flex flex-col justify-center items-center ">
      <h1 className="site-title">NEWS NOW</h1>
      <Link href="/newslist">
@@ -12,6 +12,6 @@ export default function Home() {
      </Link>
    <Themabtn label1="テーマ" label2="変更" className="absolute bottom-[10px] right-[10px]" />
 </div>
-</main>
+</div>
   );
 }

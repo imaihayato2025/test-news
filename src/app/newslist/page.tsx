@@ -6,11 +6,11 @@ import Themabtn from "../components/Themabtn";
 
 export default function NewsPage() {
   return (
-    <main className="bg-white">
+    <div className="bg-white">
       <Header />
       <Newsitem />
       <Themabtn label1="TOPへ" label2="戻る" className="absolute bottom-[110px] right-[10px]" />
       <Footer />
-    </main>
+    </div>
   );
 }
