@@ -4,7 +4,7 @@ import Themabtn from "./components/Themabtn";
 
 export default function Home() {
   return (
-    <div className="bg-white">
+    <div className="min-h-screen bg-white">
 <div className="h-screen flex flex-col justify-center items-center ">
      <h1 className="site-title">NEWS NOW</h1>
      <Link href="/newslist">
