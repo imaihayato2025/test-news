@@ -5,7 +5,7 @@
   @apply text-[#23282f] text-[clamp(3rem,2.667rem+1.67vw,4rem)] font-bold
 }
 .categoty {
-  @apply w-[16.66666%] flex flex-col justify-center items-center text-[#23282f]  text-[clamp(0.625rem,0.333rem+1.46vw,1.5rem)] font-bold ;
+  @apply w-[16.66666%] flex flex-col justify-center items-center text-[#23282f]  text-[clamp(0.625rem,0.333rem+1.46vw,1.5rem)] font-bold hover:scale-110 transition-transform duration-500 cursor-pointer;
 }
 img {
   height: 100%;

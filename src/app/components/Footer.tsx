@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-white w-[100%] fixed bottom-0  flex flex-col justify-center  h-[100px] bg-amber-100s border-[#e4e3e3] border-t">
+    <footer className="bg-white w-[100%] fixed bottom-0  flex flex-col justify-center  h-[100px] s border-[#e4e3e3] border-t">
       <ul className="flex justify-between ">
         <li className="categoty">ビジネス</li>
         <li className="categoty">エンタメ</li>

@@ -1,4 +1,4 @@
-export default function Newsitem() {
+export default function Newslist() {
   return (
    <div className="news-list bg-white h-[100px]  flex p-2 border-[#e4e3e3] border-t border-b md:h-[150px]">
       <div className="list-image w-[30%] bg-[#d9d9d9] "></div>

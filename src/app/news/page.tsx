@@ -1,13 +1,11 @@
+import Header from "../components/Header";
+import Newscontent from "../components/Newscontent"; 
 
-import Header from "../components/Header"; 
-
-export default function NewsList() {
+export default function Newslist() { // ← 別名にしよう！
   return (
-    <main>
     <div>
       <Header />
-      <h1>記事のページ</h1>
+      <Newscontent />
     </div>
-    </main>
   );
 }
