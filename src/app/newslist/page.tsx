@@ -6,7 +6,7 @@ import Themabtn from "../components/Themabtn";
 
 export default function NewsPage() {
   return (
-    <main>
+    <main className="bg-white">
       <Header />
       <Newsitem />
       <Themabtn label1="TOPへ" label2="戻る" className="absolute bottom-[110px] right-[10px]" />
