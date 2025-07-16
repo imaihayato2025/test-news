@@ -1,16 +1,12 @@
 import Image from "next/image";
-import styles from "./Image.module.css";
 
 type Props = {
   src: string;
   alt: string;
-  className?: string;
+  className?: string; // 追加スタイルを渡せるように
 };
 
 export default function ThumbnailImage({ src, alt, className = "" }: Props) {
-  // classNameを結合
-  const combinedClassName = `${styles.img} ${className}`;
-
   return (
     <Image
       src={src}
@@ -18,7 +14,7 @@ export default function ThumbnailImage({ src, alt, className = "" }: Props) {
       width={0}
       height={0}
       sizes="100vw"
-      className={combinedClassName}
+      className={`thumbnail-img ${className}`} // グローバルCSSクラスを使用
     />
   );
 }

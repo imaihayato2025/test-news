@@ -1,17 +1,25 @@
 // ✅ 修正後
-import Header from "../components/Header"; 
-import Footer from "../components/Footer"; 
-import Newslist from "../components/Newslist"; 
-import Themabtn from "../components/Themabtn";
+import Header from "../components/Header";
+import CategoryBtn from "../components/CategoryBtn";
+import NewsList from "../components/NewsList";
+import ThemaBtn from "../components/ThemaBtn";
 import Link from "next/link";
 
-export default function NewsPage() {
+export default function NewsAll() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <Link href="/news"> <Newslist /></Link>
-      <Themabtn label1="TOPへ" label2="戻る" className="absolute bottom-[110px] right-[10px]" />
-      <Footer />
+      <Link href="/news">
+        <NewsList />
+      </Link>
+      <Link href="/">
+        <ThemaBtn
+          label1="TOPへ"
+          label2="戻る"
+          className="absolute right-[10px] bottom-[110px]"
+        />
+      </Link>
+      <CategoryBtn />
     </div>
   );
 }

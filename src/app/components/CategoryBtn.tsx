@@ -1,7 +1,7 @@
-export default function Footer() {
+export default function Category() {
   return (
-    <footer className="bg-white w-[100%] fixed bottom-0  flex flex-col justify-center  h-[100px] s border-[#e4e3e3] border-t">
-      <ul className="flex justify-between ">
+    <footer className="fixed bottom-0 flex h-[100px] w-[100%] flex-col justify-center border-t border-[#e4e3e3] bg-white">
+      <ul className="flex justify-between">
         <li className="categoty">ビジネス</li>
         <li className="categoty">エンタメ</li>
         <li className="categoty">一般</li>
