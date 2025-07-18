@@ -1,15 +1,26 @@
-import React from "react";
+// src/app/components/Themabtn.tsx
+"use client"; // App Routerなら必要！
 
-type ThemabtnProps = {
+import React from "react";
+import { useTheme } from "../hooks/useTheme"; // パスは調整してね
+
+type ThemaBtnProps = {
   label1: string;
   label2: string;
-  className?: string; // ← 追加済み
+  className?: string;
 };
 
-export default function Themabtn({ label1, label2, className = "" }: ThemabtnProps) {
+export default function ThemaBtn({
+  label1,
+  label2,
+  className = "",
+}: ThemaBtnProps) {
+  const { toggleTheme } = useTheme();
+
   return (
     <button
-      className={`w-[75px] h-[75px] rounded-full bg-[#d9d9d9] text-white font-bold leading-[1.2] hover:scale-110 transition-transform duration-500 cursor-pointer ${className}`}
+      onClick={toggleTheme}
+      className={`theme-button h-[75px] w-[75px] cursor-pointer rounded-full bg-[#d9d9d9] leading-[1.2] font-bold transition-transform duration-500 hover:scale-110 ${className}`}
     >
       {label1}
       <br />

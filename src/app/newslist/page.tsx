@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function NewsAll() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="theme-change min-h-screen bg-white">
       <Header />
       <Link href="/news">
         <NewsList />
