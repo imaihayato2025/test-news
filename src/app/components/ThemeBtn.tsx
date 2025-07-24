@@ -1,17 +1,17 @@
 "use client";
 
 import React from "react";
-import { useThemeContext } from "../components/ThemeContext"; // パスは調整してください
+import { useThemeContext } from "./ThemeContext"; // パスは調整してください
 import { useTheme } from "@mui/material/styles";
 import { Box, IconButton } from "@mui/material";
 import DarkModeIcon from "@mui/icons-material/DarkMode"; // 月アイコン（ライトモード用）
 import LightModeIcon from "@mui/icons-material/LightMode"; // 太陽アイコン（ダークモード用）
 
-type ThemaBtnProps = {
+type ThemeBtnProps = {
   className?: string;
 };
 
-export default function ThemaBtn({ className = "" }: ThemaBtnProps) {
+export default function ThemeBtn({ className = "" }: ThemeBtnProps) {
   const { toggleTheme } = useThemeContext();
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";

@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import NewsContent from "../components/NewsContent";
-import ThemaBtn from "../components/ThemaBtn";
+import ThemeBtn from "../components/ThemeBtn";
 import SnsBtn from "../components/SnsBtn";
 import BackButton from "../components/BackButton";
 
@@ -10,7 +10,7 @@ export default function NewsPage() {
       <BackButton />
       <Header />
       <NewsContent />
-      <ThemaBtn className="absolute top-3.5 right-1" />
+      <ThemeBtn className="absolute top-3.5 right-1" />
       <SnsBtn url="https://example.com/article1" text="この記事すごい！" />
     </div>
   );

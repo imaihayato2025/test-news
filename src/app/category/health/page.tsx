@@ -3,7 +3,7 @@ import NewsCard from "../../components/NewsCard";
 import { Article } from "../../types/news";
 import Header from "../../components/Header";
 import CategoryBtn from "../../components/CategoryBtn";
-import ThemaBtn from "../../components/ThemaBtn";
+import ThemeBtn from "../../components/ThemeBtn";
 import TopButton from "../../components/TopButton";
 
 export default async function BusinessPage() {
@@ -21,7 +21,7 @@ export default async function BusinessPage() {
           <NewsCard key={index} article={article} />
         ))
       )}
-      <ThemaBtn className="absolute top-3.5 right-1" />
+      <ThemeBtn className="absolute top-3.5 right-1" />
 
       <CategoryBtn />
     </div>

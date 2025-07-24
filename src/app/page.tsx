@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Box, Button, Typography } from "@mui/material";
-import ThemaBtn from "./components/ThemaBtn";
+import ThemeBtn from "./components/ThemeBtn";
 
 export default function Home() {
   return (
@@ -55,7 +55,7 @@ export default function Home() {
           right: 5,
         }}
       >
-        <ThemaBtn />
+        <ThemeBtn />
       </Box>
     </Box>
   );
