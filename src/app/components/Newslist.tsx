@@ -1,3 +1,4 @@
+// src/components/NewsList.tsx
 import React from "react";
 import { Article } from "../types/news";
 
