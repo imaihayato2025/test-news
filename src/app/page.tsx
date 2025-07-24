@@ -1,23 +1,62 @@
-import "./globals.css";
+"use client";
+
 import Link from "next/link";
-import Themabtn from "./components/ThemaBtn";
+import { Box, Button, Typography } from "@mui/material";
+import ThemaBtn from "./components/ThemaBtn";
 
 export default function Home() {
   return (
-    <div className="theme-change min-h-screen bg-white">
-      <div className="flex h-screen flex-col items-center justify-center">
-        <h1 className="theme-change text-5xl font-bold text-black">NEWS NOW</h1>
-        <Link href="/newslist">
-          <button className="theme-change-btn mt-[50px] h-[50px] w-[200px] cursor-pointer rounded-full bg-[#23282f] font-bold text-white transition-transform duration-500 hover:scale-110">
-            記事一覧へ
-          </button>
-        </Link>
-        <Themabtn
-          label1="テーマ"
-          label2="変更"
-          className="absolute right-[10px] bottom-[10px]"
-        />
-      </div>
-    </div>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        bgcolor: "background.default",
+        color: "text.primary",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative", // relative 重要！
+        p: 2,
+      }}
+    >
+      <Typography variant="h2" component="h1" fontWeight="bold" gutterBottom>
+        NEWS NOW
+      </Typography>
+
+      <Link href="/category/business" passHref>
+        <Button
+          variant="contained"
+          sx={{
+            mt: 3,
+            px: 5,
+            py: 1.5,
+            borderRadius: "999px",
+            fontWeight: "bold",
+            textTransform: "none",
+            backgroundColor: "#1976d2",
+            color: "#fff",
+            transition: "transform 0.3s, background-color 0.3s",
+            width: 200, // ここで横幅を指定（px単位）
+            "&:hover": {
+              backgroundColor: "#1565c0",
+              transform: "scale(1.1)",
+            },
+          }}
+        >
+          記事一覧へ
+        </Button>
+      </Link>
+
+      {/* 右上に配置 */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 15,
+          right: 5,
+        }}
+      >
+        <ThemaBtn />
+      </Box>
+    </Box>
   );
 }

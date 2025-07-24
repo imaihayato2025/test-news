@@ -1,20 +1,16 @@
-import Image from "next/image";
-
 type Props = {
   src: string;
   alt: string;
-  className?: string; // 追加スタイルを渡せるように
+  className?: string; // 任意のスタイルを受け取れるように
 };
 
 export default function ThumbnailImage({ src, alt, className = "" }: Props) {
   return (
-    <Image
+    <img
       src={src}
       alt={alt}
-      width={0}
-      height={0}
-      sizes="100vw"
-      className={`thumbnail-img ${className}`} // グローバルCSSクラスを使用
+      className={`thumbnail-img ${className}`} // グローバルCSSクラスに対応
+      loading="lazy"
     />
   );
 }

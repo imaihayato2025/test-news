@@ -20,10 +20,10 @@
   }
 }
 .dark .theme-change {
-  background: #23282f;
+  background: black;
   color: #fff;
 }
 .dark .theme-change-btn {
   background: #ffffff;
-  color: #23282f;
+  color: black;
 }

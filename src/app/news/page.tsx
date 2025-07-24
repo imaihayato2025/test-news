@@ -2,21 +2,16 @@ import Header from "../components/Header";
 import NewsContent from "../components/NewsContent";
 import ThemaBtn from "../components/ThemaBtn";
 import SnsBtn from "../components/SnsBtn";
-import Link from "next/link";
+import BackButton from "../components/BackButton";
 
 export default function NewsPage() {
   return (
     <div className="theme-change h-screen">
+      <BackButton />
       <Header />
       <NewsContent />
-      <Link href="/newslist">
-        <ThemaBtn
-          label1="一覧へ"
-          label2="戻る"
-          className="absolute right-[10px] bottom-[110px]"
-        />
-      </Link>
-      <SnsBtn />
+      <ThemaBtn className="absolute top-3.5 right-1" />
+      <SnsBtn url="https://example.com/article1" text="この記事すごい！" />
     </div>
   );
 }
