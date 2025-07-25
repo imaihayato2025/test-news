@@ -28,5 +28,5 @@ NewsAPI から記事データを取得し、カテゴリーごとの閲覧、詳
 （画像を貼る）
 
 ## デプロイ先
-[Vercel にて公開中](https://your-app.vercel.app)
+[Vercel にて公開中](https://next-news-app-zeta.vercel.app/)
 
