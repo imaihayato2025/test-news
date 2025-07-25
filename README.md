@@ -25,7 +25,7 @@ NewsAPI から記事データを取得し、カテゴリーごとの閲覧、詳
   - 無料プラン（1日100リクエストまで）を考慮して、必要最低限の取得に最適化
 
 ## スクリーンショット
-![アプリ画面](../../public/screenshot.png)
+![アプリ画面](../public/app.png)
 
 ## デプロイ先
 [Vercel にて公開中](https://next-news-app-zeta.vercel.app/)
