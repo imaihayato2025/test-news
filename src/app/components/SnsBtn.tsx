@@ -9,9 +9,10 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 type Props = {
   url: string;
   text: string;
+  className?: string;
 };
 
-export default function SnsBtn({ url, text }: Props) {
+export default function SnsBtn({ url, text, className = "" }: Props) {
   const theme = useTheme();
 
   const encodedURL = encodeURIComponent(url);
@@ -34,10 +35,14 @@ export default function SnsBtn({ url, text }: Props) {
 
   return (
     <Box
+      className={className}
       position="fixed"
-      bottom={0}
-      left={0}
-      right={0}
+      bottom={1} // 画面下から16px上げて表示
+      left="50%"
+      sx={{
+        transform: "translateX(-50%)", // 横中央に配置
+      }}
+      width="100%"
       height="100px"
       bgcolor={
         theme.palette.mode === "dark" ? "#000" : theme.palette.background.paper
@@ -45,26 +50,27 @@ export default function SnsBtn({ url, text }: Props) {
       display="flex"
       justifyContent="center"
       alignItems="center"
-      gap={4}
-      boxShadow="0 -2px 10px rgba(0, 0, 0, 0.1)"
-      zIndex={1300}
-      borderTop={`1px solid ${theme.palette.divider}`}
+      gap={3}
+      boxShadow="0 0 6px rgba(0, 0, 0, 0.15)"
+      zIndex={9999}
+      border={`1px solid ${theme.palette.divider}`}
+      px={2}
     >
       <Tooltip title="Twitterでシェア">
         <IconButton onClick={handleTwitterShare} color="primary">
-          <TwitterIcon sx={{ fontSize: 40 }} />
+          <TwitterIcon sx={{ fontSize: 45 }} />
         </IconButton>
       </Tooltip>
 
       <Tooltip title="Facebookでシェア">
         <IconButton onClick={handleFacebookShare} color="primary">
-          <FacebookIcon sx={{ fontSize: 40 }} />
+          <FacebookIcon sx={{ fontSize: 45 }} />
         </IconButton>
       </Tooltip>
 
       <Tooltip title="Instagramを開く">
         <IconButton onClick={handleInstagramRedirect} color="secondary">
-          <InstagramIcon sx={{ fontSize: 40 }} />
+          <InstagramIcon sx={{ fontSize: 45 }} />
         </IconButton>
       </Tooltip>
     </Box>

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Article } from "../types/news";
-import ThumbnailImage from "./ThumbnailImage";
+import { Box, Typography, Link } from "@mui/material";
 
 export default function NewsContent() {
   const [article, setArticle] = useState<Article | null>(null);
@@ -11,38 +11,64 @@ export default function NewsContent() {
     const stored = localStorage.getItem("selectedArticle");
     if (stored) {
       setArticle(JSON.parse(stored));
+    } else {
+      const articlesStr = localStorage.getItem("articles");
+      if (articlesStr) {
+        const articles: Article[] = JSON.parse(articlesStr);
+        setArticle(articles[0] || null);
+      }
     }
   }, []);
 
-  if (!article) return <div>記事を読み込んでいます...</div>;
+  if (!article) {
+    return <Typography>記事データがありません。</Typography>;
+  }
 
   return (
-    <div className="theme-change flex w-full flex-col items-center pb-[110px]">
-      <div className="flex w-[90%] flex-col items-center pt-[50px] pb-[25px] text-center md:w-[50%]">
-        <ThumbnailImage
-          src={article.urlToImage || "/thumbnail.png"}
+    <Box sx={{ p: 2 }}>
+      {/* 画像 */}
+      {article.urlToImage && (
+        <Box
+          component="img"
+          src={article.urlToImage}
           alt={article.title}
+          sx={{
+            width: "100%",
+            height: {
+              xs: 200, // スマホでは高さ200px
+              sm: "auto", // タブレット以上では自動
+            },
+            objectFit: "cover",
+            borderRadius: 2,
+            mb: 2,
+          }}
         />
-      </div>
+      )}
 
-      <h2 className="theme-change mt-[30px] mb-[30px] w-[90%] text-[clamp(1rem,_0.667rem+1.67vw,_2rem)] font-bold text-[#23282f] md:w-[50%]">
+      {/* タイトル */}
+      <Typography variant="h6" gutterBottom sx={{ fontWeight: "bold" }}>
         {article.title}
-      </h2>
+      </Typography>
 
-      <div className="w-[90%] md:w-[50%]">
-        <p className="mb-4">{article.description || "本文がありません。"}</p>
-        <p className="whitespace-pre-wrap">
-          {article.content || "全文は提供されていません。"}
-        </p>
+      {/* 本文 */}
+      <Typography variant="body1" sx={{ mb: 2 }}>
+        {article.description}
+      </Typography>
+      {article.content && (
+        <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+          {article.content}
+        </Typography>
+      )}
 
-        {article.url && (
-          <p className="mt-6 text-center text-blue-600 underline">
-            <a href={article.url} target="_blank" rel="noopener noreferrer">
-              記事の全文を読む（外部サイト）
-            </a>
-          </p>
-        )}
-      </div>
-    </div>
+      {/* 記事リンク */}
+      <Link
+        href={article.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        underline="hover"
+      >
+        記事元リンクはこちら
+      </Link>
+    </Box>
   );
 }

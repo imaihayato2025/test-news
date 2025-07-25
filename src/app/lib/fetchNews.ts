@@ -1,34 +1,50 @@
-import { Article } from "../types/news";
+// lib/fetchNews.ts
+
+export type Article = {
+  source: { id: string | null; name: string };
+  author: string | null;
+  title: string;
+  description: string | null;
+  url: string;
+  urlToImage: string | null;
+  publishedAt: string;
+  content: string | null;
+};
 
 export async function fetchNews(category: string): Promise<Article[]> {
   const apiKey = process.env.NEWS_API_KEY;
 
   if (!apiKey) {
-    console.error("APIキーが設定されていません");
-    throw new Error("APIキーが設定されていません");
+    throw new Error("NEWS_API_KEY is not set in environment variables");
   }
 
-  const res = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${apiKey}`,
-    {
-      next: { revalidate: 43200 }, // 12時間、ISR。サーバー側のみで有効
-    }
-  );
+  // NewsAPIのエンドポイント例
+  const url = new URL("https://newsapi.org/v2/top-headlines");
+  url.searchParams.append("country", "us"); // 日本の記事（usに変えたい場合はここを書き換え）
+  url.searchParams.append("category", category);
+  url.searchParams.append("pageSize", "20"); // 最大20件取得
+  url.searchParams.append("apiKey", apiKey);
+
+  // ここでURLをログ出力
+  console.log("fetchNews URL:", url.toString());
+
+  const res = await fetch(url.toString());
 
   if (!res.ok) {
+    // エラー時にレスポンスのテキストもログ出力
     const errorText = await res.text();
-    console.error("Fetch error:", res.status, errorText);
-    throw new Error("ニュース取得に失敗しました");
+    console.error("NewsAPI error response:", errorText);
+    throw new Error(`NewsAPI request failed: ${res.status} ${res.statusText}`);
   }
 
   const data = await res.json();
 
-  // data.articlesが配列かどうかをチェックし、なければ空配列返す
-  if (!data.articles || !Array.isArray(data.articles)) {
-    console.error("APIレスポンスにarticlesがありません。", data);
+  // レスポンスの中身もログに出す（開発中のみ推奨）
+  console.log("NewsAPI response data:", data);
+
+  if (!data.articles) {
     return [];
   }
 
-  // Article[]として返す（型安全のため型アサーションを明示的に）
   return data.articles as Article[];
 }

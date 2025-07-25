@@ -15,7 +15,7 @@ export default function NewsCard({ article }: Props) {
 
   const handleClick = () => {
     localStorage.setItem("selectedArticle", JSON.stringify(article));
-    router.push("/news");
+    router.push("/news"); // 詳細ページへ遷移
   };
 
   return (
