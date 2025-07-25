@@ -1,4 +1,4 @@
-# プロジェクト名（例：Next News App）
+# Next.jsで作成したNewsApp
 
 ## 概要
 このアプリは、Next.js と TypeScript を使って構築したニュース閲覧アプリです。  
